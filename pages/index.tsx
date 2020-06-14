@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import Parser from 'rss-parser';
 import { GetStaticProps } from 'next';
+import Link from 'next/link';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const parser = new Parser();
@@ -29,7 +30,11 @@ const Home: React.FC = (props: any) => {
       <h1>{`${feed.title} = deploy`}</h1>
       <ul>
         {feed.items.map((item: any) => (
-          <li key={item.guid}>{item.title}</li>
+          <li key={item.guid}>
+            <Link href={`episode/${item.title.trim()}`}>
+              <a>{item.title}</a>
+            </Link>
+          </li>
         ))}
       </ul>
     </div>
