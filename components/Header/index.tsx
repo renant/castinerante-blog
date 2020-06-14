@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Logo, LogoContainer } from './styles';
+import Link from 'next/link';
+import { Container, Logo, LogoContainer, LinksContainer } from './styles';
 
 const Header: React.FC = () => {
   return (
@@ -10,8 +11,10 @@ const Header: React.FC = () => {
           src="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_nologo400/5265676/54218dabcf4b609f.png"
         />
       </LogoContainer>
-
-      <h1>Header HEader</h1>
+      <LinksContainer>
+        <Link href="/">Home</Link>
+        <Link href="/contact">Contato</Link>
+      </LinksContainer>
     </Container>
   );
 };

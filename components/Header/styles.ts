@@ -19,3 +19,7 @@ export const Logo = styled.img`
   max-height: 100%;
   position: relative;
 `;
+
+export const LinksContainer = styled.div`
+  display: flex;
+`;
