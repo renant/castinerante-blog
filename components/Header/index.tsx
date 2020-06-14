@@ -1,6 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import { Container, Logo, LogoContainer, LinksContainer } from './styles';
+import {
+  Container,
+  Logo,
+  LogoContainer,
+  LinksContainer,
+  ALink,
+} from './styles';
 
 const Header: React.FC = () => {
   return (
@@ -12,8 +18,12 @@ const Header: React.FC = () => {
         />
       </LogoContainer>
       <LinksContainer>
-        <Link href="/">Home</Link>
-        <Link href="/contact">Contato</Link>
+        <Link href="/">
+          <ALink>Home</ALink>
+        </Link>
+        <Link href="/contact">
+          <ALink>Contato</ALink>
+        </Link>
       </LinksContainer>
     </Container>
   );
