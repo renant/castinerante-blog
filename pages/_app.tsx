@@ -1,14 +1,13 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import GlobalStyle from '../styles/global';
+import Header from '../components/Header';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <GlobalStyle />
-      <div>
-        <h1>Header</h1>
-      </div>
+      <Header />
       <Component {...pageProps} />
     </>
   );
