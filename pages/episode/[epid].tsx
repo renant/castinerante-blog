@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
-import Parser from 'rss-parser';
+import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
-import { cleanStringToId } from '../../utils';
 import { getEpisodesIds, getEpisodeById, Episode } from '../../services/feed';
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
