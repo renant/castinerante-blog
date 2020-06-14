@@ -1,15 +1,11 @@
 import React, { useEffect } from 'react';
 
-import Parser from 'rss-parser';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
+import { getSimpleFeed, SimpleFeed } from '../services/feed';
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const parser = new Parser();
-
-  const feed = await parser.parseURL(
-    'https://anchor.fm/s/1ffb5f30/podcast/rss',
-  );
+  const feed = await getSimpleFeed();
 
   return {
     props: {
@@ -18,7 +14,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const Home: React.FC = (props: any) => {
+interface Props {
+  feed: SimpleFeed;
+}
+
+const Home: React.FC<Props> = (props: Props) => {
   const { feed } = props;
 
   useEffect(() => {
@@ -29,10 +29,10 @@ const Home: React.FC = (props: any) => {
     <div>
       <h1>{`${feed.title} = deploy`}</h1>
       <ul>
-        {feed.items.map((item: any) => (
-          <li key={item.guid}>
-            <Link href={`episode/${item.title.trim()}`}>
-              <a>{item.title}</a>
+        {feed.episodes.map((episode) => (
+          <li key={episode.guid}>
+            <Link href={`episode/${episode.id}`}>
+              <a>{episode.title}</a>
             </Link>
           </li>
         ))}
