@@ -2,6 +2,7 @@ import React from 'react';
 
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
+
 import { getSimpleFeed, SimpleFeed } from '../services/feed';
 import { EpisodeImage, EpisodeCard } from './style';
 

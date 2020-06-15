@@ -8,6 +8,11 @@ export default createGlobalStyle`
     outline: 0;
   }
 
+  ul {
+    list-style: none;
+  }
+
+
   body {
     background: #f4f4ed;
     -webkit-font-smoothing: antialised;
