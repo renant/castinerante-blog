@@ -43,7 +43,6 @@ class MyDocument extends Document {
             content="width=device-width,height=device-height"
             key="viewport"
           />
-          <title>Castinerante - Podcast Castinerante</title>
           <meta name="description" content="Podcast Castinerante" />
           <link rel="canonical" href="https://castinerante.com/" />
           <meta property="og:locale" content="pt_BR" />
