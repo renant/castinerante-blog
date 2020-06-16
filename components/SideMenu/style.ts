@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  flex: 1 1 100px;
   background: hotpink;
-  flex: 1.5;
 `;
 
 export const Title = styled.h4`

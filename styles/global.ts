@@ -16,9 +16,10 @@ export default createGlobalStyle`
   body {
     background: #f4f4ed;
     -webkit-font-smoothing: antialised;
+    min-width: fit-content;
   }
 
-  body, input, button, a {
+  input, button, a {
     font-family: 'Roboto Slab', serif;
     font-size: 16px;
   }

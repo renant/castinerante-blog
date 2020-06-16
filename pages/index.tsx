@@ -4,7 +4,8 @@ import { GetStaticProps } from 'next';
 import Link from 'next/link';
 
 import { getSimpleFeed, SimpleFeed } from '../services/feed';
-import { EpisodeImage, EpisodeCard } from './style';
+import EpisodeCard from '../components/EpisodeCard';
+import { Main } from '../styles/style';
 
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await getSimpleFeed();
@@ -23,23 +24,14 @@ interface Props {
 const Home: React.FC<Props> = (props: Props) => {
   const { feed } = props;
   return (
-    <div>
-      <ul>
-        {feed.episodes.map((episode) => (
-          <li key={episode.guid}>
-            <EpisodeCard>
-              <EpisodeImage
-                alt={`episode-${episode.title}`}
-                src={episode.image}
-              />
-            </EpisodeCard>
-            {/* <Link href={`episode/${episode.id}`}>
+    <Main>
+      {feed.episodes.map((episode) => (
+        <EpisodeCard episode={episode} />
+      ))}
+      {/* <Link href={`episode/${episode.id}`}>
               <a>{episode.title}</a>
             </Link> */}
-          </li>
-        ))}
-      </ul>
-    </div>
+    </Main>
   );
 };
 

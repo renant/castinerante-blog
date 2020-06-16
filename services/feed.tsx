@@ -10,9 +10,9 @@ export interface SimpleEpisode {
   guid: string;
   id: string;
   title: string;
-  audio: string;
   pubDate: Date;
   image: string;
+  content: string;
 }
 
 export interface Episode {
@@ -35,13 +35,14 @@ export const getSimpleFeed = async (): Promise<SimpleFeed> => {
   const simpleFeed = {
     title: feed.title,
     episodes: feed.items.map((item: any) => {
+      console.log(item);
       return {
         guid: item.guid,
         id: cleanStringToId(item.title),
         title: item.title,
-        audio: item.enclosure.url,
         pubDate: item.pubDate,
         image: item.itunes.image,
+        content: item.contentSnippet.split('---')[0],
       } as SimpleEpisode;
     }),
   } as SimpleFeed;

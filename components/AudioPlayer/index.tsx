@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAudioPlayer } from 'react-use-audio-player';
 
-const AudioPlayer = ({ file }) => {
+const AudioPlayer = ({ file }: any) => {
   const { togglePlayPause, ready, loading, playing } = useAudioPlayer({
     src: file,
     format: 'mp3',

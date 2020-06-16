@@ -15,9 +15,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
       </Head>
       <Header />
       <Container>
-        <Main>
-          <Component {...pageProps} />
-        </Main>
+        <Component {...pageProps} />
         <SideMenu />
       </Container>
     </MainContainer>
