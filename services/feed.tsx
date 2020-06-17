@@ -10,13 +10,17 @@ export interface SimpleEpisode {
   guid: string;
   id: string;
   title: string;
-  pubDate: Date;
+  pubDate: string;
   image: string;
   content: string;
 }
 
 export interface Episode {
   title: string;
+  pubDate: string;
+  image: string;
+  content: string;
+  audioUrl: string;
 }
 
 const getFeed = async (): Promise<any> => {
@@ -35,12 +39,11 @@ export const getSimpleFeed = async (): Promise<SimpleFeed> => {
   const simpleFeed = {
     title: feed.title,
     episodes: feed.items.map((item: any) => {
-      console.log(item);
       return {
         guid: item.guid,
         id: cleanStringToId(item.title),
         title: item.title,
-        pubDate: item.pubDate,
+        pubDate: item.isoDate,
         image: item.itunes.image,
         content: item.contentSnippet.split('---')[0],
       } as SimpleEpisode;
@@ -65,9 +68,11 @@ export const getEpisodeById = async (id: string): Promise<Episode> => {
     (item: any) => cleanStringToId(item?.title ?? '') === id,
   );
 
-  console.log(episode);
-
   return {
     title: episode.title,
+    audioUrl: episode.enclosure.url,
+    content: episode.contentSnippet.split('---')[0],
+    image: episode.itunes.image,
+    pubDate: episode.isoDate,
   };
 };

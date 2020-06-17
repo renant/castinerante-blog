@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAudioPlayer } from 'react-use-audio-player';
+import DurationLabel from '../DurationLabel';
+import AudioSeekBar from '../AudioSeekBar';
 
-const AudioPlayer = ({ file }: any) => {
+interface Props {
+  file: string;
+}
+
+const AudioPlayer: React.FC<Props> = ({ file }: Props) => {
   const { togglePlayPause, ready, loading, playing } = useAudioPlayer({
     src: file,
     format: 'mp3',
@@ -16,6 +22,8 @@ const AudioPlayer = ({ file }: any) => {
       <button type="button" onClick={togglePlayPause}>
         {playing ? 'Pause' : 'Play'}
       </button>
+      <DurationLabel />
+      <AudioSeekBar />
     </div>
   );
 };

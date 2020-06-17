@@ -12,11 +12,13 @@ export default createGlobalStyle`
     list-style: none;
   }
 
+  #__next {
+    min-width: 100vh;
+            }
 
   body {
     background: #f4f4ed;
     -webkit-font-smoothing: antialised;
-    min-width: fit-content;
   }
 
   input, button, a {

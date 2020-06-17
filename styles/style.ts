@@ -7,6 +7,7 @@ export const MainContainer = styled.div`
 `;
 
 export const Container = styled.div`
+  margin-top: 20px;
   align-self: center;
   display: flex;
   flex-wrap: wrap;
@@ -18,5 +19,5 @@ export const Main = styled.div`
   display: flex;
   flex-direction: column;
   justify-items: center;
-  background: deepskyblue;
+  /* background: deepskyblue; */
 `;

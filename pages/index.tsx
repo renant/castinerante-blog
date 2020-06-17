@@ -28,9 +28,6 @@ const Home: React.FC<Props> = (props: Props) => {
       {feed.episodes.map((episode) => (
         <EpisodeCard episode={episode} />
       ))}
-      {/* <Link href={`episode/${episode.id}`}>
-              <a>{episode.title}</a>
-            </Link> */}
     </Main>
   );
 };
