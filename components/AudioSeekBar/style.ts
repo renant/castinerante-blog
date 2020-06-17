@@ -8,6 +8,11 @@ export const Container = styled.div`
   background-color: #5e239d;
   height: 10px;
   border-radius: 12px;
+  margin-bottom: 35px;
+
+  @media only screen and (max-width: 768px) {
+    height: 20px;
+  }
 `;
 
 export const Tick = styled.div`

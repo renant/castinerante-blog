@@ -1,6 +1,8 @@
 import { useAudioPlayer } from 'react-use-audio-player';
 import React, { useMemo } from 'react';
 
+import { Container } from './style';
+
 const DurationLabel: React.FC = () => {
   const { duration } = useAudioPlayer();
 
@@ -12,7 +14,7 @@ const DurationLabel: React.FC = () => {
     return `${display(hours)}${display(minutes)}${seconds}`;
   }, [duration]);
 
-  return <div>{durationLabel}</div>;
+  return <Container>{durationLabel}</Container>;
 };
 
 export default DurationLabel;
