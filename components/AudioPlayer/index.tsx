@@ -1,7 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useAudioPlayer } from 'react-use-audio-player';
+import { FiPause, FiPlay } from 'react-icons/fi';
 import DurationLabel from '../DurationLabel';
 import AudioSeekBar from '../AudioSeekBar';
+import VolumeControl from '../VolumeControl';
+
+import {
+  Container,
+  PlayButton,
+  PlayerContainer,
+  PlayButtonContainer,
+  PlayBarContainer,
+} from './style';
 
 interface Props {
   file: string;
@@ -18,13 +28,21 @@ const AudioPlayer: React.FC<Props> = ({ file }: Props) => {
   if (loading) return <div>Loading audio</div>;
 
   return (
-    <div>
-      <button type="button" onClick={togglePlayPause}>
-        {playing ? 'Pause' : 'Play'}
-      </button>
-      <DurationLabel />
-      <AudioSeekBar />
-    </div>
+    <Container>
+      <PlayerContainer>
+        <PlayButtonContainer>
+          <PlayButton type="button" onClick={togglePlayPause}>
+            {playing ? <FiPause /> : <FiPlay />}
+          </PlayButton>
+        </PlayButtonContainer>
+        <PlayBarContainer>
+          <AudioSeekBar />
+          <DurationLabel />
+        </PlayBarContainer>
+      </PlayerContainer>
+
+      <VolumeControl />
+    </Container>
   );
 };
 

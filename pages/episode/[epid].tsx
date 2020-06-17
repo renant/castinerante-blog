@@ -4,7 +4,13 @@ import { AudioPlayerProvider } from 'react-use-audio-player';
 import { getEpisodesIds, getEpisodeById, Episode } from '../../services/feed';
 import AudioPlayer from '../../components/AudioPlayer';
 
-import { Container } from '../../styles/episode/style';
+import {
+  Container,
+  ImageContainer,
+  EpisodeContainer,
+  InfoContainer,
+  EpisodeTitle,
+} from '../../styles/episode/style';
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const { epid } = params;
@@ -47,15 +53,22 @@ const EpisodePost: React.FC<Props> = (props: Props) => {
   const { episode } = props;
 
   return (
-    <Container>
-      {console.log(episode)}
-      <img alt={`episode-${episode.title}`} src={episode.image} />
-      <p>{episode.title}</p>
-      <AudioPlayerProvider>
-        <AudioPlayer file={episode.audioUrl} />
-      </AudioPlayerProvider>
-      <p>{episode.content}</p>
-    </Container>
+    <>
+      <Container>
+        <ImageContainer>
+          <img alt={`episode-${episode.title}`} src={episode.image} />
+        </ImageContainer>
+        <EpisodeContainer>
+          <EpisodeTitle>{episode.title}</EpisodeTitle>
+          <AudioPlayerProvider>
+            <AudioPlayer file={episode.audioUrl} />
+          </AudioPlayerProvider>
+        </EpisodeContainer>
+        <InfoContainer>
+          <p>{episode.content}</p>
+        </InfoContainer>
+      </Container>
+    </>
   );
 };
 
