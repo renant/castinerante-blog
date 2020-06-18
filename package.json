@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export && vercel",
-    "pub": "next build && next export && vercel --prod",
+    "pub": "node castinerante-sitemap-generator.js next build && next export && vercel --prod",
     "start": "next start"
   },
   "dependencies": {
     "date-fns": "^2.14.0",
     "next": "9.4.4",
+    "nextjs-sitemap-generator": "^1.0.0",
     "polished": "^3.6.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
