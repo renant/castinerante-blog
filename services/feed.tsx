@@ -21,6 +21,7 @@ export interface Episode {
   image: string;
   content: string;
   audioUrl: string;
+  link: string;
 }
 
 const getFeed = async (): Promise<any> => {
@@ -74,5 +75,6 @@ export const getEpisodeById = async (id: string): Promise<Episode> => {
     content: episode.contentSnippet.split('---')[0],
     image: episode.itunes.image,
     pubDate: episode.isoDate,
+    link: episode.link,
   };
 };
