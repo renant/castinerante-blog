@@ -44,7 +44,7 @@ export const InfoContainer = styled.div`
     p {
       margin-left: 20px;
       margin-right: 20px;
-      font-size: 20px;
+      font-size: 26px;
     }
   }
 `;
@@ -57,5 +57,49 @@ export const EpisodeTitle = styled.h1`
     margin-top: 20px;
     font-size: 32px;
     text-align: center;
+  }
+`;
+
+export const ShareContainer = styled.div`
+  width: 100%;
+
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+  margin-bottom: 50px;
+
+  div {
+    text-align: center;
+
+    svg {
+      margin: 10px 10px 0 10px;
+      border-radius: 50%;
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    div {
+      svg {
+        height: 50px;
+        width: 50px;
+      }
+    }
+  }
+`;
+
+export const ShareTitle = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+  h4 {
+    font-size: 20px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    h4 {
+      font-size: 30px;
+    }
   }
 `;

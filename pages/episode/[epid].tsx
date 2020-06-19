@@ -1,6 +1,16 @@
 import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { AudioPlayerProvider } from 'react-use-audio-player';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  TelegramShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  TelegramIcon,
+  WhatsappIcon,
+} from 'react-share';
 import { getEpisodesIds, getEpisodeById, Episode } from '../../services/feed';
 import AudioPlayer from '../../components/AudioPlayer';
 
@@ -10,6 +20,8 @@ import {
   EpisodeContainer,
   InfoContainer,
   EpisodeTitle,
+  ShareContainer,
+  ShareTitle,
 } from '../../styles/episode/style';
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
@@ -53,9 +65,9 @@ interface Props {
 
 const EpisodePost: React.FC<Props> = (props: Props) => {
   const { episode, episodeId } = props;
-
   return (
     <>
+      {console.log(episode.link)}
       <Container>
         <ImageContainer>
           <img
@@ -69,9 +81,33 @@ const EpisodePost: React.FC<Props> = (props: Props) => {
             <AudioPlayer file={episode.audioUrl} />
           </AudioPlayerProvider>
         </EpisodeContainer>
+
         <InfoContainer>
           <p>{episode.content}</p>
         </InfoContainer>
+        <ShareContainer>
+          <ShareTitle>
+            <h4> Gostou do episodio? Compartilhe!</h4>
+          </ShareTitle>
+          <div>
+            <FacebookShareButton url={episode.link} quote={episode.title}>
+              <FacebookIcon />
+            </FacebookShareButton>
+            <TwitterShareButton url={episode.link} title={episode.title}>
+              <TwitterIcon />
+            </TwitterShareButton>
+            <TelegramShareButton url={episode.link} title={episode.title}>
+              <TelegramIcon />
+            </TelegramShareButton>
+            <WhatsappShareButton
+              url={episode.link}
+              title={episode.title}
+              separator=":: "
+            >
+              <WhatsappIcon />
+            </WhatsappShareButton>
+          </div>
+        </ShareContainer>
       </Container>
     </>
   );
