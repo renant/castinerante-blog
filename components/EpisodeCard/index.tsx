@@ -14,7 +14,10 @@ const EpisodeCard: React.FC<Props> = ({ episode }: Props) => {
   return (
     <Container>
       <EpisodeImage>
-        <img alt={`episode-${episode.title}`} src={episode.image} />
+        <img
+          alt={`episode-${episode.title}`}
+          src={`/images/${episode.id}.webp`}
+        />
       </EpisodeImage>
       <EpisodeInfo>
         <PubDate>

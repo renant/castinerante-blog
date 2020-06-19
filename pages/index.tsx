@@ -1,14 +1,19 @@
 import React from 'react';
 
 import { GetStaticProps } from 'next';
-import Link from 'next/link';
 
 import { getSimpleFeed, SimpleFeed } from '../services/feed';
 import EpisodeCard from '../components/EpisodeCard';
 import { Main } from '../styles/style';
 
+import processImage from '../lib/processImage.js';
+
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await getSimpleFeed();
+
+  feed.episodes.forEach(async (episode) => {
+    await processImage(episode.image, episode.id);
+  });
 
   return {
     props: {

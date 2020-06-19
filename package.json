@@ -10,14 +10,19 @@
   },
   "dependencies": {
     "date-fns": "^2.14.0",
+    "image-size": "^0.8.3",
+    "isomorphic-unfetch": "^3.0.0",
     "next": "9.4.4",
     "nextjs-sitemap-generator": "^1.0.0",
+    "node-vibrant": "^3.1.5",
     "polished": "^3.6.5",
+    "potrace": "^2.1.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-icons": "^3.10.0",
     "react-use-audio-player": "^0.0.18",
     "rss-parser": "^3.8.0",
+    "sharp": "^0.25.4",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
