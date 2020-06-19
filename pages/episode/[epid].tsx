@@ -67,7 +67,6 @@ const EpisodePost: React.FC<Props> = (props: Props) => {
   const { episode, episodeId } = props;
   return (
     <>
-      {console.log(episode.link)}
       <Container>
         <ImageContainer>
           <img
