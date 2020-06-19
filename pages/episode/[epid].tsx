@@ -20,6 +20,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   return {
     props: {
       episode,
+      episodeId: epid,
     },
   };
 };
@@ -47,16 +48,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 interface Props {
   episode: Episode;
+  episodeId: string;
 }
 
 const EpisodePost: React.FC<Props> = (props: Props) => {
-  const { episode } = props;
+  const { episode, episodeId } = props;
 
   return (
     <>
       <Container>
         <ImageContainer>
-          <img alt={`episode-${episode.title}`} src={episode.image} />
+          <img
+            alt={`episode-${episode.title}`}
+            src={`/images/${episodeId}.webp`}
+          />
         </ImageContainer>
         <EpisodeContainer>
           <EpisodeTitle>{episode.title}</EpisodeTitle>
