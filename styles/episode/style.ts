@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DiscussionEmbed } from 'disqus-react';
 
 export const Container = styled.div`
   flex: 1 1 700px;
@@ -7,6 +8,8 @@ export const Container = styled.div`
   flex-wrap: wrap;
   margin-left: 20px;
   margin-right: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
 
   @media only screen and (max-width: 768px) {
     flex-direction: column;
@@ -62,8 +65,6 @@ export const EpisodeTitle = styled.h1`
 
 export const ShareContainer = styled.div`
   width: 100%;
-
-  border-bottom: 1px solid black;
   padding-bottom: 20px;
   margin-bottom: 50px;
 
@@ -102,4 +103,10 @@ export const ShareTitle = styled.div`
       font-size: 30px;
     }
   }
+`;
+
+export const DisqusContainer = styled(DiscussionEmbed)`
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
 `;
