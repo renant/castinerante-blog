@@ -1,6 +1,8 @@
 import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
+import getConfig from 'next/config';
 import { AudioPlayerProvider } from 'react-use-audio-player';
+
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -22,17 +24,18 @@ import {
   EpisodeTitle,
   ShareContainer,
   ShareTitle,
+  DisqusContainer,
 } from '../../styles/episode/style';
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const { epid } = params;
 
   const episode = await getEpisodeById(epid);
-
   return {
     props: {
       episode,
       episodeId: epid,
+      disqusShortName: process.env.DISQUS_SHORTNAME,
     },
   };
 };
@@ -61,10 +64,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 interface Props {
   episode: Episode;
   episodeId: string;
+  disqusShortName: string;
 }
 
 const EpisodePost: React.FC<Props> = (props: Props) => {
-  const { episode, episodeId } = props;
+  const { episode, episodeId, disqusShortName } = props;
   return (
     <>
       <Container>
@@ -80,7 +84,6 @@ const EpisodePost: React.FC<Props> = (props: Props) => {
             <AudioPlayer file={episode.audioUrl} />
           </AudioPlayerProvider>
         </EpisodeContainer>
-
         <InfoContainer>
           <p>{episode.content}</p>
         </InfoContainer>
@@ -107,6 +110,15 @@ const EpisodePost: React.FC<Props> = (props: Props) => {
             </WhatsappShareButton>
           </div>
         </ShareContainer>
+        <DisqusContainer
+          shortname={disqusShortName}
+          config={{
+            url: `http://castinerante/episode/${episodeId}`,
+            identifier: episodeId,
+            title: episode.title,
+            language: 'pt', // e.g. for Traditional Chinese (Taiwan)
+          }}
+        />
       </Container>
     </>
   );

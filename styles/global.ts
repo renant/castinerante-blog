@@ -12,6 +12,10 @@ export default createGlobalStyle`
     list-style: none;
   }
 
+  #reactions__container {
+    display: none;
+  }
+
   #__next {
     min-width: 100vh;
             }
