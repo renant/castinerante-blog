@@ -113,7 +113,7 @@ const EpisodePost: React.FC<Props> = (props: Props) => {
         <DisqusContainer
           shortname={disqusShortName}
           config={{
-            url: `http://localhost:3000/episode/${episodeId}`,
+            url: `http://castinerante/episode/${episodeId}`,
             identifier: episodeId,
             title: episode.title,
             language: 'pt', // e.g. for Traditional Chinese (Taiwan)
