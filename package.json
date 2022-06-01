@@ -24,7 +24,7 @@
     "react-share": "^4.2.0",
     "react-use-audio-player": "^0.0.18",
     "rss-parser": "^3.8.0",
-    "sharp": "^0.25.4",
+    "sharp": "^0.30.5",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
